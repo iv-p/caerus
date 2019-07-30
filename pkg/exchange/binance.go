@@ -1,19 +1,23 @@
 package exchange
 
+import (
+	"github.com/ip-v/exchange/pkg/config"
+	"github.com/ip-v/exchange/pkg/order"
+	"github.com/ip-v/exchange/pkg/stock"
+)
+
 type BinanceAPI struct {
 	url string
-
-	API
 }
 
-func NewBinanceAPI() *BinanceAPI {
-	return &BinanceAPI{}
+func NewBinanceAPI(c config.API) API {
+	return &BinanceAPI{c.URL}
 }
 
-func (a *BinanceAPI) FetchPair(pair Pair) Candle {
-	return Candle{}
+func (a *BinanceAPI) FetchPrice(pair stock.Pair) stock.Candle {
+	return stock.Candle{}
 }
 
-func (a *BinanceAPI) ExecuteOrder(Order) {
-	
+func (a *BinanceAPI) ExecuteOrder(order order.Order) {
+
 }
